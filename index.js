@@ -8,7 +8,7 @@ const config = require('./config.js');
 const app = express();
 
 // Routes
-const ROUTES = require('./routes.js')
+const ROUTES = require('./modules/routes.js')
 
 app.use(function(req, res, next) {
   res.header(config.headers);

@@ -3,7 +3,7 @@ const axios = require("axios");
 // Import scraping functions
 const scrape = require('./scrape.js');
 // Import config
-const config = require('./config.js');
+const config = require('../config.js');
 
 module.exports = {
   scraper: function scraper(type, res) {
