@@ -7,7 +7,15 @@ A small project I started whilst working in a store at my side hustle during sch
 I was interested in building some kind of scraper in node and started hacking away at the store computer on Repl.it and now I guess it's for the best that this is published on github sice it is quite cool!
 Would love some feedback on the code. Just open an issue and write some comments. 
 
-Still learning node. 
+I'm still learning node, but tbh I am quite enjoying this.
+
+This is the link for the react front-end non-sence I built in codesandbox. 
+
+Front-End: https://github.com/fabifors/hackernews-react-front
+
+Front-End Codesandbox: https://codesandbox.io/s/github/fabifors/hackernews-react-front/tree/master/
+
+
 
 ## 🕵️‍♀️ Instructions
 There are some steps involved in running this application. Below I will list a set of instructions on how to go about running this shi... I mean... beautiful application.
