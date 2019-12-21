@@ -33,7 +33,7 @@ app.get("/user/:userid", ROUTES.user_id);
 // Get the page form specific site
 app.get("/from/:site", ROUTES.from_site);
 
-app.listen(3000, () => {
+app.listen(config.host.port, () => {
   console.clear();
-  console.log("Server running on port 3000");
+  console.log(`Server running on ${config.host.url} with port ${config.host.port}`);
 });
