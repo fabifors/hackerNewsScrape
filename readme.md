@@ -21,7 +21,7 @@ Front-End Codesandbox: https://codesandbox.io/s/github/fabifors/hackernews-react
 There are some steps involved in running this application. Below I will list a set of instructions on how to go about running this shi... I mean... beautiful application.
 
 ### 💾 Clone repo
-Go to the folder you would like to download the project to.
+Go to the folder you would like to download the project to and run:
 ```bash
 $ ~ git clone https://github.com/fabifors/hackerNewsScrape
 ```
@@ -58,7 +58,7 @@ modules/
 This might change and I will try to update this documentation as this happens. 
 
 ### index.js
-The index file is used to initialize a new instance of exress and run a server. We set headers from the config file and declare the routes that the application is using. The logic performed in for each route is defined in the module routes.js and are imported here to keep the application managable.
+The index file is used to initialize a new instance of exress and run a server. We set headers from the config file and declare the routes that the application is using. The logic performed in each route is defined in the module routes.js and are imported here to keep the application managable.
 
 ```javascript
 // Dependencies

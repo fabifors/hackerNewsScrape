@@ -44,7 +44,6 @@ module.exports = {
               result = this.scraper('news', response)
             })
             .catch(console.error);
-        
         }
 
       } else {
