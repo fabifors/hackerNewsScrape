@@ -17,48 +17,24 @@ module.exports = {
     }  
   },
   makeRequest: async function (query, params) {
-    try {
-      let result;
-      if ((params && params.userid) || (params && params.site)) {
-        let QUERY; 
+    let QUERY = query;
 
-        if (params.userid) {
-          console.log('Scraping user')
-          // Build new querystring
-          QUERY =  query + "?id=" + params.userid;
-          // Make request based on user or site
-          await axios(config.url + QUERY)
-            .then(response => {
-              result = this.scraper('user', response)
-            })
-            .catch(console.error);
-
-        } 
-        if (params.site) {
-          console.log(`Scraping news from ${params.site}`)
-          // Build new querystring
-          QUERY = query + "?site=" + params.site;
-          // Make request based on user or site
-          await axios(config.url + QUERY)
-            .then(response => {
-              result = this.scraper('news', response)
-            })
-            .catch(console.error);
-        }
-
-      } else {
-        // Make regular request
-        await axios(config.url + query)
-          .then(response => {
-            console.log('Scraping news')
-            result = this.scraper('news', response)
-          })
-          .catch(console.error);
-      }
-      return result;
+    if (params && params.userid) {
+      console.log('Scraping user');
+      QUERY = query + "?id=" + params.userid;
+      const response = await axios(config.url + QUERY);
+      return this.scraper('user', response);
     }
-    catch (err){
-      console.error(err);
+
+    if (params && params.site) {
+      console.log(`Scraping news from ${params.site}`);
+      QUERY = query + "?site=" + params.site;
+      const response = await axios(config.url + QUERY);
+      return this.scraper('news', response);
     }
+
+    console.log('Scraping news');
+    const response = await axios(config.url + QUERY);
+    return this.scraper('news', response);
   }
 }

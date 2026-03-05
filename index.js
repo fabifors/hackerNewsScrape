@@ -15,10 +15,10 @@ app.use(function(req, res, next) {
   next();
 });
 
-// Get the first page
+// Get the root info page
 app.get("/", ROUTES.root);
 
-// Get the first page
+// Get the front page news
 app.get("/news", ROUTES.news);
 
 // Get the page with newest posts
@@ -36,4 +36,10 @@ app.get("/from/:site", ROUTES.from_site);
 app.listen(config.host.port, () => {
   console.clear();
   console.log(`Server running on ${config.host.url} with port ${config.host.port}`);
+});
+
+// Central error handler
+app.use(function(err, req, res, next) {
+  console.error(err.message);
+  res.status(500).json({ error: 'Failed to fetch data. Please try again later.' });
 });

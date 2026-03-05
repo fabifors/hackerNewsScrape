@@ -39,8 +39,21 @@ $ ~ node index.js
 ```
 
 ### 🚦 Test
-The application is set to run at https://localhost:3000. 
-Try to go there in your browser, and you should see some information displayed in JSON 
+The application is set to run at http://localhost:3000. 
+Try to go there in your browser, and you should see some information displayed in JSON
+
+### ⚙️ Configuration (optional)
+Copy `.env.example` to `.env` and edit the values to customise the server:
+```bash
+$ ~ cp .env.example .env
+```
+
+| Variable      | Default                          | Description                            |
+|---------------|----------------------------------|----------------------------------------|
+| `PORT`        | `3000`                           | Port the server listens on             |
+| `HOST_URL`    | `localhost`                      | Hostname shown in the startup log      |
+| `CORS_ORIGIN` | `*`                              | Value for `Access-Control-Allow-Origin`|
+| `HN_BASE_URL` | `https://news.ycombinator.com/`  | Base URL of the site being scraped     | 
 
 
 ## 🌁 API Documentation
@@ -85,7 +98,7 @@ app.listen(config.host.port, () => {
   console.log(`Server running on ${config.host.url} with port ${config.host.port}`);
 });
 ```
-This is the basic pattern that the application uses. The config.host is supposed to be switched out for an .EVN file setup but I haven't looked into it yet. Please write a pull request with a solution if you have the time. 🤓
+The config.host is now driven by environment variables (see `.env.example`). Copy `.env.example` to `.env` and set values there.
 
 ### functions.js
 This file holds two methods at the moment of writing this. The `makeRequest` method is the backbone of the operation. It checks if the request is for user or a specitic site, and determine what scraping function to run. 

@@ -11,13 +11,13 @@ module.exports =  {
       const id = $(this)
         .attr('id')
       const title = $(this)
-        .find(".title > .storylink")
+        .find(".titleline > a")
         .text();
       const link = $(this)
-        .find(".title > .storylink")
+        .find(".titleline > a")
         .attr("href");
       const from = $(this)
-        .find(".title > .sitebit > a > .sitestr")
+        .find(".titleline .sitestr")
         .text();
       const age = $(this)
         .next()
@@ -46,15 +46,16 @@ module.exports =  {
     return news;
   },
   user: function (res) {
-    const user = []
-  
     const html = res.data;
     const $ = cheerio.load(html);
-    const tbody = $("#hnmain>tbody>tbody");
 
-    tbody.each(function() {
-      console.log(this);
-    })
+    const user = {
+      id: $("#hnmain .hnuser").first().text() || '',
+      karma: $("tr:contains('karma') td").last().text().trim() || '',
+      about: $("tr:contains('about') td").last().text().trim() || '',
+      created: $("tr:contains('created') td").last().text().trim() || ''
+    };
+
     return user;
   }
 }
