@@ -9,39 +9,59 @@ module.exports = {
   },
   
   news: async function (req, res, next) {
-    console.log('Requesting news')
-    const result = await functions.makeRequest('news');
-    console.log('Success: News sent')
-    res.json(result);
+    try {
+      console.log('Requesting news')
+      const result = await functions.makeRequest('news');
+      console.log('Success: News sent')
+      res.json(result);
+    } catch (err) {
+      next(err);
+    }
   },
 
   newest: async function (req, res, next) {
-    console.log('Requesting newest')
-    const result = await functions.makeRequest('newest');
-    console.log('Success: Newest sent')
-    res.json(result);
+    try {
+      console.log('Requesting newest')
+      const result = await functions.makeRequest('newest');
+      console.log('Success: Newest sent')
+      res.json(result);
+    } catch (err) {
+      next(err);
+    }
   },
 
   past: async function (req, res, next) {
-    console.log('Requesting past')
-    const result = await functions.makeRequest('front');
-    console.log('Success: Past sent')
-    res.json(result);
+    try {
+      console.log('Requesting past')
+      const result = await functions.makeRequest('front');
+      console.log('Success: Past sent')
+      res.json(result);
+    } catch (err) {
+      next(err);
+    }
   },
 
   user_id: async function (req, res, next) {
-    console.log('Requesting user', req.params)
-    const { params } = req;
-    const result = await functions.makeRequest('user', params);
-    console.log('Success: User sent')
-    res.json(result);
+    try {
+      console.log('Requesting user', req.params)
+      const { params } = req;
+      const result = await functions.makeRequest('user', params);
+      console.log('Success: User sent')
+      res.json(result);
+    } catch (err) {
+      next(err);
+    }
   },
 
   from_site: async function (req, res, next) {
-    console.log('Requesting site', req.params)
-    const { params } = req;
-    const result = await functions.makeRequest('from', params);
-    console.log('Success: Site sent')
-    res.json(result);
+    try {
+      console.log('Requesting site', req.params)
+      const { params } = req;
+      const result = await functions.makeRequest('from', params);
+      console.log('Success: Site sent')
+      res.json(result);
+    } catch (err) {
+      next(err);
+    }
   }
 }
